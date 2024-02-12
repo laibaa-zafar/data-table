@@ -1,0 +1,120 @@
+
+.container-mt-5 {
+  margin-top: 30px;
+  padding: 20px;
+}
+.table-heading{
+  display: flex;
+  justify-content: center;
+  color: #3a73b0;
+}
+
+.text-end {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff;
+  color: #2c5581;
+
+}
+.eSnilV {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  height: 100%;
+  /* background-color: #2c5581; */
+  color: #2c5581;
+  width: 100%;
+  outline: none;
+  user-select: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+.eSnilV :first-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  height: 100%;
+  /* background-color: #2c5581; */
+  color: #2c5581;
+  width: 100%;
+  outline: none;
+  user-select: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+/* #pagination-first-page button {
+  position: relative;
+  display: block;
+  user-select: none;
+  border: none;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  padding: 8px;
+  margin: 0; 
+  cursor: pointer;
+  transition: 0.4s;
+  color: rgba(0,0,0,.54);
+  background-color: #5050db;
+} */
+
+/* Styling for DataTable */
+.dataTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.dataTable th,
+.dataTable td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #223788;
+}
+
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination li {
+  display: inline-block;
+  margin-right: 5px;
+  color: #41499f;
+  background-color: #223788;
+}
+
+.pagination li a {
+  padding: 6px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  text-decoration: none;
+  color: #2633c2;
+}
+
+.pagination li.active a {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
