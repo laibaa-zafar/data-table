@@ -263,7 +263,6 @@ function App() {
       <DataTable
         columns={columns}
         data={records}
-        selectableRows
         fixedHeader
         pagination
       ></DataTable>

@@ -49,9 +49,9 @@ input[type="text"]:focus {
 }
 .eSnilV :first-child {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  align-items: left;
+  justify-content: left;
+  text-align: left;
   font-size: 18px;
   font-weight: bold;
   height: 100%;
@@ -95,7 +95,7 @@ input[type="text"]:focus {
 
 .pagination {
   margin-top: 20px;
-  text-align: center;
+  text-align: left;
 }
 
 .pagination li {
