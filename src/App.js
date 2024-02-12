@@ -261,8 +261,8 @@ function App() {
         <input type="text" onChange={handleFilter} placeholder="Search"></input>
       </div>
       <DataTable
-        columns={columns}
-        data={records}
+        columns = {columns}
+        data = {records}
         fixedHeader
         pagination
       ></DataTable>

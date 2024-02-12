@@ -47,11 +47,11 @@ input[type="text"]:focus {
   overflow: hidden;
   cursor: pointer;
 }
-.eSnilV :first-child {
+.eztHnh {
   display: inline-flex;
-  align-items: left;
-  justify-content: left;
-  text-align: left;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   font-size: 18px;
   font-weight: bold;
   height: 100%;
