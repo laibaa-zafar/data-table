@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import "./App.css";
 
@@ -11,12 +11,30 @@ function App() {
     },
     {
       name: "Name",
-      selector: (row) => row.name,
+      selector: (row) => (
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <img
+            src={`./Images/ellipse.png`}
+            alt={row.name}
+            style={{ width: "30px", marginRight: "10px" }}
+          />
+          {row.name}
+        </div>
+      ),
       sortable: true,
     },
     {
-      name: "Email",
-      selector: (row) => row.email,
+      name: "Product-Name",
+      selector: (row) => (
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <img
+            src={`./Images/ellipse.png`}
+            alt={row.email}
+            style={{ width: "30px", marginRight: "10px" }}
+          />
+          {row.email}
+        </div>
+      ),
       sortable: true,
     },
     {
@@ -29,243 +47,359 @@ function App() {
       selector: (row) => row.city,
       sortable: true,
     },
+    {
+      name: "Age",
+      selector: (row) => row.age,
+      sortable: true,
+    },
+    {
+      name: "Status",
+      selector: (row) => (
+        <div>
+          <button
+            className="status-btn"
+            style={{
+              backgroundColor: getStatusColor(row?.status).backgroundColor,
+              color: getStatusColor(row?.status).color,
+            }}
+          >
+            {row?.status}
+          </button>
+        </div>
+      ),
+      sortable: true,
+    },
   ];
 
+
+  useEffect(() => {
+    const getRandomStatus = () => {
+      const statuses = ["Pending", "Overdue", "Paid"];
+      const randomIndex = Math.floor(Math.random() * statuses.length);
+      return statuses[randomIndex];
+    };
+    const updatedData = data.map((row) => {
+      return { ...row, status: getRandomStatus() };
+    });
+
+    setRecords(updatedData);
+  }, []);
   const data = [
     {
       id: 1,
       name: "laiba",
-      email: "laibazafar2699@gmail.com",
+      email: "Lorem ipsum dolor",
       gender: "female",
       city: "Islamabad",
+      age: "25",
     },
     {
       id: 2,
       name: "Sarah Johnson",
-      email: "sarah.johnson@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Female",
       city: "New York City",
+      age: "32",
     },
     {
       id: 3,
       name: "Michael Smith",
-      email: "michael.smith@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Male",
       city: "Los Angeles",
+      age: "31",
     },
     {
       id: 4,
       name: "Emily Chen",
-      email: "emily.chen@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Female",
       city: "Toronto",
+      age: "21",
     },
     {
       id: 5,
       name: "David Rodriguez",
-      email: "david.rodriguez@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Male",
       city: "London",
+      age: "32",
     },
     {
       id: 6,
       name: "Jessica Nguyen",
-      email: "jessica.nguyen@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Female",
       city: "Sydney",
+      age: "42",
     },
     {
       id: 7,
       name: "Alexander Kim",
-      email: "alexander.kim@example.com",
+      email: "Lorem ipsum dolor ",
       gender: "Male",
       city: "Seoul",
+      age: "52",
     },
     {
       id: 8,
       name: "Sophia Martinez",
-      email: "sophia.martinez@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Female",
       city: "Mexico City",
+      age: "92",
     },
     {
       id: 9,
       name: "Mohammed Khan",
-      email: "mohammed.khan@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Male",
       city: "Dubai",
+      age: "92",
     },
     {
       id: 10,
       name: "Ava Wilson",
-      email: "ava.wilson@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Female",
       city: "Paris",
+      age: "90",
     },
     {
       id: 11,
       name: "Liam Brown",
-      email: "liam.brown@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Male",
       city: "Berlin",
+      age: "25",
     },
     {
       id: 12,
       name: "Isabella Lee",
-      email: "isabella.lee@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Female",
       city: "Tokyo",
+      age: "43",
     },
     {
       id: 13,
       name: "Ethan Garcia",
-      email: "ethan.garcia@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Male",
       city: "Madrid",
+      age: "09",
     },
     {
       id: 14,
       name: "Olivia Anderson",
-      email: "olivia.anderson@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Female",
       city: "Rome",
+      age: "12",
     },
     {
       id: 15,
       name: "Noah Thompson",
-      email: "noah.thompson@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Male",
       city: "Moscow",
+      age: "12",
     },
     {
       id: 16,
       name: "Emma Hernandez",
-      email: "emma.hernandez@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Female",
       city: "Rio de Janeiro",
+      age: "13",
     },
     {
       id: 17,
       name: "William Martinez",
-      email: "william.martinez@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Male",
       city: "Buenos Aires",
+      age: "19",
     },
     {
       id: 18,
       name: "Amelia Kim",
-      email: "amelia.kim@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Female",
       city: "Seoul",
+      age: "32",
     },
     {
       id: 19,
       name: "James Johnson",
-      email: "james.johnson@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Male",
       city: "New York City",
+      age: "22",
     },
     {
       id: 20,
       name: "Sophia Brown",
-      email: "sophia.brown@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Female",
       city: "Los Angeles",
+      age: "52",
     },
     {
       id: 21,
       name: "Oliver Taylor",
-      email: "oliver.taylor@example.com",
+      email: "Lorem ipsum dolor sit amet",
       gender: "Male",
       city: "Toronto",
+      age: "12",
     },
     {
       id: 22,
       name: "Mia Martinez",
-      email: "mia.martinez@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Female",
       city: "London",
+      age: "22",
     },
     {
       id: 23,
       name: "Benjamin Wilson",
-      email: "benjamin.wilson@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Male",
       city: "Sydney",
+      age: "32",
     },
     {
       id: 24,
       name: "Charlotte Lee",
-      email: "charlotte.lee@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Female",
       city: "Seoul",
+      age: "22",
     },
     {
       id: 25,
       name: "Lucas Nguyen",
-      email: "lucas.nguyen@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Male",
       city: "Mexico City",
+      age: "15",
     },
     {
       id: 26,
       name: "Lucas Nguyen",
-      email: "lucas.nguyen@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Male",
       city: "Mexico City",
+      age: "16",
     },
     {
       id: 27,
       name: "Lucas Nguyen",
-      email: "lucas.nguyen@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Male",
       city: "Mexico City",
+      age: "32",
     },
     {
       id: 28,
       name: "Lucas Nguyen",
-      email: "lucas.nguyen@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Male",
       city: "Mexico City",
+      age: "22",
     },
     {
       id: 29,
       name: "Lucas Nguyen",
-      email: "lucas.nguyen@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Male",
       city: "Mexico City",
+      age: "18",
     },
     {
       id: 30,
       name: "Lucas Nguyen",
-      email: "lucas.nguyen@example.com",
+      email: "Lorem ipsum dolor",
       gender: "Male",
       city: "Mexico City",
     },
   ];
+  const itemsPerPage = 10; 
+  const [currentPage, setCurrentPage] = useState(1);
   const [records, setRecords] = useState(data);
-  function handleFilter(events) {
-    const newData = data.filter((row) => {
-      return row.name.toLowerCase().includes(events.target.value.toLowerCase());
-    });
+
+  function handleFilter(event) {
+    const newData = data.filter((row) =>
+      row.name.toLowerCase().includes(event.target.value.toLowerCase())
+    );
     setRecords(newData);
   }
+
+  function getStatusColor(status) {
+    switch (status?.toLowerCase()) {
+      case "paid":
+        return { backgroundColor: "#D6EEDD", color: "#00976A" }; // Dark green 
+      case "pending":
+        return { backgroundColor: "#EFE9D4", color: "#978800" }; // Brown 
+      case "overdue":
+        return { backgroundColor: "#ECD7D7", color: "#970000" }; // Dark red 
+      default:
+        return { backgroundColor: "", color: "#000" }; 
+    }
+  }
+
+  const totalPages = Math.ceil(records.length / itemsPerPage);
+
+  const paginatedData = records.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   return (
     <div className="container-mt-5">
       <div className="table-heading">
-        <h1> React table using Pagination</h1>
+        <h1> Search Transactions</h1>
       </div>
       <div className="text-end">
-        {" "}
-        <input type="text" onChange={handleFilter} placeholder="Search"></input>
+        <div className="search-container">
+          <input
+            type="text"
+            onChange={handleFilter}
+            placeholder="Search"
+            className="search-input"
+          />
+        </div>
       </div>
+      
       <DataTable
-        columns = {columns}
-        data = {records}
+        columns={columns}
+        data={paginatedData}
         fixedHeader
-        pagination
-      ></DataTable>
+        customStyles={{
+          table: {
+            
+          },
+        }}
+      />
+      <div className="pagination-container">
+        <p>
+          Showing {(currentPage - 1) * itemsPerPage + 1} to{" "}
+          {Math.min(currentPage * itemsPerPage, records.length)} of{" "}
+          {records.length} entries
+        </p>
+        <div className="pagination-controls">
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              key={i + 1}
+              className={currentPage === i + 1 ? "active" : ""}
+              onClick={() => setCurrentPage(i + 1)}
+            >
+              {i + 1}
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

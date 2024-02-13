@@ -1,17 +1,38 @@
-
 .container-mt-5 {
   margin-top: 30px;
   padding: 20px;
 }
-.table-heading{
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 30px;
+  width: 50%;
+}
+
+.search-input {
+  padding-right: 40px; 
+}
+
+.table-heading {
   display: flex;
   justify-content: center;
-  color: #3a73b0;
+  color: #791b8e;
 }
 
 .text-end {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   margin-bottom: 20px;
 }
 
@@ -21,16 +42,17 @@ input[type="text"] {
   border: 1px solid #ccc;
   font-size: 16px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
+  width: 70%;
 }
 
 input[type="text"]:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: #3f0065;
   color: #2c5581;
-
 }
+
 .eSnilV {
   display: inline-flex;
   align-items: center;
@@ -39,23 +61,22 @@ input[type="text"]:focus {
   font-size: 18px;
   font-weight: bold;
   height: 100%;
-  /* background-color: #2c5581; */
-  color: #2c5581;
+  color: #4b3e51;
   width: 100%;
   outline: none;
   user-select: none;
   overflow: hidden;
   cursor: pointer;
 }
+
 .eztHnh {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: normal;
   height: 100%;
-  /* background-color: #2c5581; */
   color: #2c5581;
   width: 100%;
   outline: none;
@@ -63,23 +84,20 @@ input[type="text"]:focus {
   overflow: hidden;
   cursor: pointer;
 }
-/* #pagination-first-page button {
-  position: relative;
-  display: block;
-  user-select: none;
-  border: none;
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  padding: 8px;
-  margin: 0; 
-  cursor: pointer;
-  transition: 0.4s;
-  color: rgba(0,0,0,.54);
-  background-color: #5050db;
-} */
 
-/* Styling for DataTable */
+.erkbiK div:first-child {
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: normal;
+  text-overflow: ellipsis;
+  color: #515a68;
+}
+
+.dataTable tbody tr:nth-child(odd) {
+  background-color: rgb(103, 18, 103); 
+  color: white;
+}
+
 .dataTable {
   border-collapse: collapse;
   width: 100%;
@@ -92,6 +110,9 @@ input[type="text"]:focus {
   border-bottom: 1px solid #223788;
 }
 
+.table-striped tbody tr:nth-child(odd) {
+  background-color: #9b59b6; 
+}
 
 .pagination {
   margin-top: 20px;
@@ -117,4 +138,45 @@ input[type="text"]:focus {
   background-color: #007bff;
   color: #fff;
   border-color: #007bff;
+}
+
+.status-btn {
+  border: none;
+  border-radius: 25px;
+  padding: 5px 10px;
+  color: rgb(99, 83, 83);
+  font-weight: bold;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 15px;
+  color: #3737379E;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+}
+
+.pagination-controls button {
+  margin-left: 10px;
+  border-radius: 50px;
+  background: transparent;
+  color: #3f0065;
+  font-weight: bold;
+  height: 30px;
+  width: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.pagination-controls button.active {
+  background-color: #9A6FA4; 
+  color: white; 
+  border-radius: 30px; 
+  padding: 5px 10px; 
 }
