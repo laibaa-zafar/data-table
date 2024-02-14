@@ -17,11 +17,11 @@
   position: relative;
   display: inline-block;
   margin-left: 30px;
-  width: 50%;
+  width: 70%;
 }
 
 .search-input {
-  padding-right: 40px; 
+  padding-right: 40px;
 }
 
 .table-heading {
@@ -32,7 +32,7 @@
 
 .text-end {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   margin-bottom: 20px;
 }
 
@@ -77,8 +77,9 @@ input[type="text"]:focus {
   font-size: 18px;
   font-weight: normal;
   height: 100%;
-  color: #2c5581;
+  color: #4b3e51;
   width: 100%;
+  font-weight: bold;
   outline: none;
   user-select: none;
   overflow: hidden;
@@ -94,7 +95,7 @@ input[type="text"]:focus {
 }
 
 .dataTable tbody tr:nth-child(odd) {
-  background-color: rgb(103, 18, 103); 
+  background-color: rgb(103, 18, 103);
   color: white;
 }
 
@@ -111,7 +112,7 @@ input[type="text"]:focus {
 }
 
 .table-striped tbody tr:nth-child(odd) {
-  background-color: #9b59b6; 
+  background-color: #9b59b6;
 }
 
 .pagination {
@@ -154,7 +155,7 @@ input[type="text"]:focus {
   align-items: center;
   font-weight: bold;
   font-size: 15px;
-  color: #3737379E;
+  color: #3737379e;
 }
 
 .pagination-controls {
@@ -175,8 +176,8 @@ input[type="text"]:focus {
 }
 
 .pagination-controls button.active {
-  background-color: #9A6FA4; 
-  color: white; 
-  border-radius: 30px; 
-  padding: 5px 10px; 
+  background-color: #9a6fa4;
+  color: white;
+  border-radius: 30px;
+  padding: 5px 10px;
 }
