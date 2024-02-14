@@ -373,15 +373,20 @@ function App() {
       </div>
       
       <DataTable
-        columns={columns}
-        data={paginatedData}
-        fixedHeader
-        customStyles={{
-          table: {
-            
-          },
-        }}
-      />
+  columns={columns}
+  data={paginatedData}
+  fixedHeader
+  className="table-striped"
+  conditionalRowStyles={[
+    {
+      when: (row) => row.id % 2 !== 0,
+      style: {
+        backgroundColor: "#F5DDFB2B", // or any other color you prefer
+      },
+    },
+  ]}
+/>
+    
       <div className="pagination-container">
         <p>
           Showing {(currentPage - 1) * itemsPerPage + 1} to{" "}
