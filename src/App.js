@@ -315,7 +315,7 @@ function App() {
   const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
   const [records, setRecords] = useState(data);
-  const [filteredRecords, setFilteredRecords] = useState(data); // New state for filtered data
+  const [filteredRecords, setFilteredRecords] = useState(data);
 
   useEffect(() => {
     const getRandomStatus = () => {
@@ -339,8 +339,9 @@ function App() {
       row.name.toLowerCase().includes(event.target.value.toLowerCase())
     );
     setFilteredRecords(newData);
-    setCurrentPage(1);
+    setCurrentPage(1); 
   }
+  
 
   const totalPages = Math.ceil(filteredRecords.length / itemsPerPage);
 
@@ -351,11 +352,11 @@ function App() {
   function getStatusColor(status) {
     switch (status?.toLowerCase()) {
       case "paid":
-        return { backgroundColor: "#D6EEDD", color: "#00976A" }; // Dark green 
+        return { backgroundColor: "#D6EEDD", color: "#00976A" }; // green 
       case "pending":
         return { backgroundColor: "#EFE9D4", color: "#978800" }; // Brown 
       case "overdue":
-        return { backgroundColor: "#ECD7D7", color: "#970000" }; // Dark red 
+        return { backgroundColor: "#ECD7D7", color: "#970000" }; // red 
       default:
         return { backgroundColor: "", color: "#000" }; 
     }
@@ -375,27 +376,25 @@ function App() {
             className="search-input"
           />
         </div>
-        {/* <div className="export-button">
-          <button> 
-            <img src="./Images/download.png" alt="" />Export data</button>
-        </div> */}
+
       </div>
       
-      <DataTable
-        columns={columns}
-        data={paginatedData}
-        fixedHeader
-        className="table-striped"
-        conditionalRowStyles={[
-          {
-            when: (row) => row.id % 2 !== 0,
-            style: {
-              backgroundColor: "#F5DDFB2B", 
+      <div className="table-container">
+        <DataTable
+          columns={columns}
+          data={paginatedData}
+          fixedHeader
+          className="table-striped"
+          conditionalRowStyles={[
+            {
+              when: (row) => row.id % 2 !== 0,
+              style: {
+                backgroundColor: "#F5DDFB2B",
+              },
             },
-          },
-        ]}
-      />
-    
+          ]}
+        />
+      </div>
       <div className="pagination-container">
         <p>
           Showing {(currentPage - 1) * itemsPerPage + 1} to{" "}
