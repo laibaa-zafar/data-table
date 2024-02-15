@@ -71,19 +71,6 @@ function App() {
     },
   ];
 
-
-  useEffect(() => {
-    const getRandomStatus = () => {
-      const statuses = ["Pending", "Overdue", "Paid"];
-      const randomIndex = Math.floor(Math.random() * statuses.length);
-      return statuses[randomIndex];
-    };
-    const updatedData = data.map((row) => {
-      return { ...row, status: getRandomStatus() };
-    });
-
-    setRecords(updatedData);
-  }, []);
   const data = [
     {
       id: 1,
@@ -325,17 +312,42 @@ function App() {
       city: "Mexico City",
     },
   ];
-  const itemsPerPage = 10; 
+  const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
   const [records, setRecords] = useState(data);
+  const [filteredRecords, setFilteredRecords] = useState(data); // New state for filtered data
+
+  useEffect(() => {
+    const getRandomStatus = () => {
+      const statuses = ["Pending", "Overdue", "Paid"];
+      const randomIndex = Math.floor(Math.random() * statuses.length);
+      return statuses[randomIndex];
+    };
+    const updatedData = data.map((row) => {
+      return { ...row, status: getRandomStatus() };
+    });
+
+    setRecords(updatedData);
+  }, []);
+
+  useEffect(() => {
+    setFilteredRecords(records); 
+  }, [records]);
 
   function handleFilter(event) {
-    const newData = data.filter((row) =>
+    const newData = records.filter((row) =>
       row.name.toLowerCase().includes(event.target.value.toLowerCase())
     );
-    setRecords(newData);
+    setFilteredRecords(newData);
+    setCurrentPage(1);
   }
 
+  const totalPages = Math.ceil(filteredRecords.length / itemsPerPage);
+
+  const paginatedData = filteredRecords.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
   function getStatusColor(status) {
     switch (status?.toLowerCase()) {
       case "paid":
@@ -348,13 +360,6 @@ function App() {
         return { backgroundColor: "", color: "#000" }; 
     }
   }
-
-  const totalPages = Math.ceil(records.length / itemsPerPage);
-
-  const paginatedData = records.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
 
   return (
     <div className="container-mt-5">
@@ -370,28 +375,32 @@ function App() {
             className="search-input"
           />
         </div>
+        {/* <div className="export-button">
+          <button> 
+            <img src="./Images/download.png" alt="" />Export data</button>
+        </div> */}
       </div>
       
       <DataTable
-  columns={columns}
-  data={paginatedData}
-  fixedHeader
-  className="table-striped"
-  conditionalRowStyles={[
-    {
-      when: (row) => row.id % 2 !== 0,
-      style: {
-        backgroundColor: "#F5DDFB2B", // or any other color you prefer
-      },
-    },
-  ]}
-/>
+        columns={columns}
+        data={paginatedData}
+        fixedHeader
+        className="table-striped"
+        conditionalRowStyles={[
+          {
+            when: (row) => row.id % 2 !== 0,
+            style: {
+              backgroundColor: "#F5DDFB2B", 
+            },
+          },
+        ]}
+      />
     
       <div className="pagination-container">
         <p>
           Showing {(currentPage - 1) * itemsPerPage + 1} to{" "}
-          {Math.min(currentPage * itemsPerPage, records.length)} of{" "}
-          {records.length} entries
+          {Math.min(currentPage * itemsPerPage, filteredRecords.length)} of{" "}
+          {filteredRecords.length} entries
         </p>
         <div className="pagination-controls">
           {Array.from({ length: totalPages }, (_, i) => (
